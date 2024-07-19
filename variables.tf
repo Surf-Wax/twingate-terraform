@@ -34,3 +34,13 @@ variable "twingate_connector_name" {
   type        = string
   default     = "home-computer-connector"
 }
+
+variable "twingate_label_hostname" {
+  description = "Hostname for Twingate label"
+  type        = string
+}
+
+variable "twingate_label_deployed_by" {
+  description = "Label for who deployed the container"
+  type        = string
+}

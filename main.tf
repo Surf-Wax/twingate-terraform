@@ -4,6 +4,10 @@ terraform {
             source = "Twingate/twingate"
             version = ">=3.0.7"
         }
+        docker = {
+            source  = "kreuzwerker/docker"
+            version = "3.0.2"
+        }
     }
 }
 
@@ -73,3 +77,18 @@ resource "twingate_resource" "resource" {
     }
 }
 
+# Deploy the connector locally using docker compose
+resource "docker_image" "twingate_connector" {
+  name         = "twingate/connector:1"
+}
+
+resource "null_resource" "deploy_twingate_connector" {
+  depends_on = [docker_container.twingate_connector]
+
+  provisioner "local-exec" {
+    command = <<-EOT
+      echo '${local.docker_compose_file}' > docker-compose.yml
+      docker-compose up -d
+    EOT
+  }
+}

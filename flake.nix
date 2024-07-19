@@ -20,6 +20,7 @@
         devShell = pkgs.mkShell {
           buildInputs = [
             pkgs.terraform
+            pkgs.docker
           ];
 
           shellHook = ''
