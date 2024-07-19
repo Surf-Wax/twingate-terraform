@@ -30,8 +30,8 @@ resource "twingate_connector_tokens" "local_connector_tokens" {
 }
 
 # Define user(s)
-resource "twingate_user" "local_user" {
-    email = var.twingate_user_email
+data "twingate_user" "local_user" {
+    id = var.twingate_user_id
 }
 
 # Create twingate security policy(ies)
@@ -42,8 +42,8 @@ data "twingate_security_policy" "default_policy" {
 # Create twingate group(s) for accessing resource
 resource "twingate_group" "local_group" {
     name = "local_group"
-    security_policy_id = twingate_security_policy.default_policy.id
-    user_ids = [twingate_user.local_user.id] # add more user IDs
+    security_policy_id = data.twingate_security_policy.default_policy.id
+    user_ids = [data.twingate_user.local_user.id] # add more user IDs
 }
 # Create more groups here for additional access control
 

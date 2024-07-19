@@ -18,8 +18,8 @@ variable "twingate_remote_network_name" {
   default     = "local_network"
 }
 
-variable "twingate_user_email" {
-  description = "Email of the user"
+variable "twingate_user_id" {
+  description = "id of the user, obtained through the URL string in the Admin Console"
   type        = string
 }
 
@@ -33,14 +33,4 @@ variable "twingate_connector_name" {
   description = "Name for the Twingate Connector"
   type        = string
   default     = "home-computer-connector"
-}
-
-variable "terraform_organization_name" {
-  description = "Name of your Terraform Organization"
-  type        = string
-}
-
-variable "terraform_workspace_name" {
-  description = "Name of your Terraform Workspace"
-  type        = string
 }
