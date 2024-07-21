@@ -76,19 +76,3 @@ resource "twingate_resource" "resource" {
         usage_based_autolock_duration_days = 30
     }
 }
-
-# Deploy the connector locally using docker compose
-resource "docker_image" "twingate_connector" {
-  name         = "twingate/connector:1"
-}
-
-resource "null_resource" "deploy_twingate_connector" {
-  depends_on = [docker_container.twingate_connector]
-
-  provisioner "local-exec" {
-    command = <<-EOT
-      echo '${local.docker_compose_file}' > docker-compose.yml
-      docker-compose up -d
-    EOT
-  }
-}
