@@ -40,7 +40,14 @@
             pkgs.terraform
           ];
 
-          terraformInit = pkgs.writeScript "terraform-init.sh" ''
+          shellHook = ''
+            if command -v docker &> /dev/null; then
+              echo "
+              Docker is Installed"
+            else
+              echo "Docker not found. Please install Docker."
+            fi
+
             export TF_VAR_twingate_api_key="${secrets.twingateApiKey}"
             export TF_VAR_twingate_network="${secrets.twingateNetwork}"
             export TF_VAR_twingate_remote_network_name="${secrets.twingateRemoteNetwork}"
@@ -49,21 +56,13 @@
             export TF_VAR_twingate_connector_name="home-computer-connector"
             export TF_VAR_twingate_label_hostname="`hostname`"
             export TF_VAR_twingate_label_deployed_by="docker"
-            # terraform init
-            '';
 
-          shellHook = ''
-            if command -v docker &> /dev/null; then
-              echo "
-              Docker is Installed"
-            else
-              echo "Docker not found. Please install Docker."
-            fi
             echo "
             -> Terraform dev environment ready - courtesy of seabear (Surf-Wax on GitHub)
             "
-            ./terraform-init
           '';
         };
+
+        defaultPackage.${system} = self.devShell;
       });
 }
