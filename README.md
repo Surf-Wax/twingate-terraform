@@ -6,7 +6,12 @@ This project was built using Nix Flakes. To enable the use of flakes on your sys
 This project stores sensitive information such as API keys in plaintext in the `secrets.nix` file. These are then used to populate environment variables inside the Nix Dev Shell to access twingate and terraform cloud. This shell is activated by changing directory into the twingate-terraform directory and these environment variables will only be accessible from within that directory, not to your user outside of this shell.
 
 ### Description:
-Twingate is a remote access solution marketed as a VPN alternative that makes zero-trust architecture simple and intuitive to utilize. I use twingate to implement secure remote access to my personal resources. I started using it after I ran a Minecraft server in a docker container on my local machine, and made it (only the specific container and port) available to my brother (only his machine authenticated with his google account) via it's local IP address. You can read more about Twingate [here](https://www.twingate.com/docs/how-twingate-works).
+Twingate is a remote access solution marketed as a VPN alternative that makes zero-trust architecture simple and intuitive to utilize. I use twingate to implement secure remote access to my personal resources.
+
+I started using it after I first ran a Minecraft server in a docker container on my local machine, and made it (only the specific container and port) available to my brother (only his machine authenticated with his google account) via it's local IP address. 
+
+You can read more about Twingate [here](https://www.twingate.com/docs/how-twingate-works).
+
 I created this repository to demonstrate my proficiency with HashiCorp Terraform and to try out using nix flakes for development. 
 
 #### Dependencies:
@@ -43,8 +48,9 @@ twingate-terraform
 3. Change directory into the repository (run `direnv allow` if necessary)
 4. Enter your twingate network information into `secrets.nix` and your backend information into `backend.tf` (I used Terraform Cloud)
 5. Log into terraform with `terraform login`
-6. Terraform init, terraform plan, terraform apply
-7. Deploy the twingate connector via docker via twingate admin console
+   
+7. Terraform init, terraform plan, terraform apply
+8. Deploy the twingate connector via docker via twingate admin console
 
 ### TODO:
 - Automate twingate connector docker container deployment via the terraform code using user tokens stored in environment variables
