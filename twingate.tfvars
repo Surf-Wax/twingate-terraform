@@ -1,4 +1,4 @@
-# terraform.tfvars
+# twingate.tfvars
 # This is where you define your variables
 # NOTE: if this file is not encrypted or otherwise protected,
 #  theese variables are plaintext and need to be handled carefully

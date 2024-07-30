@@ -49,7 +49,7 @@
             export TF_VAR_twingate_connector_name="home-computer-connector"
             export TF_VAR_twingate_label_hostname="`hostname`"
             export TF_VAR_twingate_label_deployed_by="docker"
-            terraform init
+            # terraform init
             '';
 
           shellHook = ''
@@ -62,6 +62,7 @@
             echo "
             -> Terraform dev environment ready - courtesy of seabear (Surf-Wax on GitHub)
             "
+            ./terraform-init
           '';
         };
       });

@@ -38,7 +38,7 @@ data "twingate_user" "local_user" {
     id = var.twingate_user_id
 }
 
-# Create twingate security policy(ies)
+# Pull in the default twingate security policy(ies)
 data "twingate_security_policy" "default_policy" {
     name = "Default Policy"
 }
