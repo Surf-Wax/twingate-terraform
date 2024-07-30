@@ -1,9 +1,9 @@
 terraform {
   cloud {
-    organization = "your_organizaion"
+    organization = "your_terraformCloud_organizaion"
 
     workspaces {
-      name = "your_workspace"
+      name = "your_terraformCloud_workspace"
     }
   }
 }
