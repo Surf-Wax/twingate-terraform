@@ -4,7 +4,7 @@
 This project was built using Nix Flakes. To enable the use of flakes on your system, ...
 
 ### Description:
-Twingate is a remote access solution marketed as a VPN alternative that makes zero-trust architecture simple and intuitive to utilize. I use twingate to make defined services accessible to authenticated users on allowed machines. Particularly, to run a Minecraft server in a docker container on my local machine, and make it available to my brother via it's local IP address. You can read more about Twingate here.
+Twingate is a remote access solution marketed as a VPN alternative that makes zero-trust architecture simple and intuitive to utilize. I use twingate to implement zero-trust remote access to my personal resources. Particularly, to run a Minecraft server in a docker container on my local machine, and make it available to my brother via it's local IP address. You can read more about Twingate here.
 I created this repository, both to demonstrate my proficiency with HashiCorp Terraform, and to try out using nix flakes for development. 
 
 #### Dependencies:
