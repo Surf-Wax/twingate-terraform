@@ -1,17 +1,17 @@
 # Twingate Network IaC with Terraform
 
-#### Disclaimer: 
+### Disclaimer: 
 This project was built using Nix Flakes. To enable the use of flakes on your system, ...
 
-#### Description:
+### Description:
 Twingate is a remote access solution marketed as a VPN alternative that makes zero-trust architecture simple and intuitive to utilize. I use twingate to make defined services accessible to authenticated users on allowed machines. Particularly, to run a Minecraft server in a docker container on my local machine, and make it available to my brother via it's local IP address. You can read more about Twingate here.
 I created this repository, both to demonstrate my proficiency with HashiCorp Terraform, and to try out using nix flakes for development. 
 
-##### Dependencies:
+#### Dependencies:
 - Nix (with flakes enabled)
 - Docker
 - Direnv
-##### Layout: 
+#### Layout: 
 ```
 twingate-terraform
  |-->.envrc
@@ -35,7 +35,7 @@ twingate-terraform
 `twingate.tfvars` populates the resource IP variable address along with some other twingate-related variables.
 `twingate-connector.tf` (change this to deploy via docker)
 
-##### Instructions
+### Instructions
 1. Install dependencies & enable flakes
 2. Clone this repository
 3. Change directory into the repository (run `direnv allow` if necessary)
@@ -44,5 +44,5 @@ twingate-terraform
 6. Terraform init, terraform plan, terraform apply
 7. Deploy the twingate connector via docker via twingate admin console
 
-#### TODO:
+### TODO:
 - Automate twingate connector docker container deployment via the terraform code using user tokens stored in environment variables
